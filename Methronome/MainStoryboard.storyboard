@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="6Sq-y8-AbN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="6Sq-y8-AbN">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
-        <development version="4300" defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <development version="4300" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -23,21 +23,6 @@
                                     <action selector="timeValueChanged:" destination="6Sq-y8-AbN" eventType="valueChanged" id="Xja-1K-Kwg"/>
                                 </connections>
                             </slider>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z30-FI-ROK">
-                                <rect key="frame" x="20" y="403" width="280" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Stop It">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopMethronome:" destination="6Sq-y8-AbN" eventType="touchUpInside" id="eLu-rE-63d"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PDa-H9-6KL">
                                 <rect key="frame" x="20" y="403" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -51,6 +36,7 @@
                                 </state>
                                 <connections>
                                     <action selector="startMethronome:" destination="6Sq-y8-AbN" eventType="touchUpInside" id="ipf-W5-7LY"/>
+                                    <segue destination="LYx-zJ-vFl" kind="push" id="Dsi-CB-UHp"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dTK-k8-4jn">
@@ -71,13 +57,6 @@
                                 <rect key="frame" x="72" y="302" width="176" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qdG-m4-t1F">
-                                <rect key="frame" x="114" y="346" width="92" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -108,10 +87,8 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
-                        <outlet property="beatLabel" destination="qdG-m4-t1F" id="0Jj-tC-Vcb"/>
                         <outlet property="picker" destination="Cyg-WS-f3c" id="kxv-bB-SCJ"/>
                         <outlet property="startButton" destination="PDa-H9-6KL" id="oab-4H-aSl"/>
-                        <outlet property="stopButton" destination="Z30-FI-ROK" id="wGJ-VI-ULX"/>
                         <outlet property="timeLabel" destination="TM0-i6-CdP" id="91e-YL-TOR"/>
                         <outlet property="timeSlider" destination="eca-LU-ISh" id="XRD-LY-FGA"/>
                         <outlet property="view" destination="6fy-10-HUM" id="mMd-4B-kFr"/>
@@ -120,6 +97,45 @@
             </objects>
             <point key="canvasLocation" x="256" y="93"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="kMh-Bz-dMJ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZy-Qm-54Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="LYx-zJ-vFl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Y8-Mw-WJw">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d5R-zu-oJk">
+                                <rect key="frame" x="20" y="403" width="280" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Stop It">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopMethronome:" destination="6Sq-y8-AbN" eventType="touchUpInside" id="E6N-44-UHQ"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Fln-8r-hq4">
+                                <rect key="frame" x="20" y="20" width="280" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="150"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ujp-d5-7hg"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="815" y="111"/>
+        </scene>
     </scenes>
     <classes>
         <class className="MTViewController" superclassName="UIViewController">
@@ -127,6 +143,7 @@
             <relationships>
                 <relationship kind="action" name="startMethronome:"/>
                 <relationship kind="action" name="stopMethronome:"/>
+                <relationship kind="action" name="timeValueChanged:"/>
                 <relationship kind="outlet" name="beatLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
