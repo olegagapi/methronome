@@ -29,11 +29,9 @@
 @synthesize metaTimer;
 @synthesize timeInterval;
 @synthesize startButton;
-@synthesize stopButton;
 @synthesize timeSlider;
 @synthesize timeLabel;
 @synthesize startDate;
-@synthesize beatLabel;
 @synthesize model;
 @synthesize picker;
 
@@ -76,14 +74,14 @@
 
 - (void)animateBeatWithBPM:(NSUInteger)currentBPM
 {
-	self.beatLabel.text = [NSString stringWithFormat:@"%u", currentBPM];
-	[self.beatLabel.layer removeAllAnimations];
+//	self.beatLabel.text = [NSString stringWithFormat:@"%u", currentBPM];
+//	[self.beatLabel.layer removeAllAnimations];
 	CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
 	animation.fromValue = [NSNumber numberWithFloat:1.0];
 	animation.toValue = [NSNumber numberWithFloat:0.3];
 	animation.duration = 60.0 / currentBPM;
 	animation.repeatCount = HUGE_VALF;
-	[self.beatLabel.layer addAnimation:animation forKey:@"opacity"];
+//	[self.beatLabel.layer addAnimation:animation forKey:@"opacity"];
 //	NSTimeInterval duration = [self.rockTimer timeInterval];
 //	UIViewAnimationOptions opt = UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseIn;
 //	[UIView animateWithDuration:duration delay:0.0 options:opt animations: ^(void){self.beatLabel.alpha = 0.3;} completion: ^(BOOL f){}];
@@ -99,9 +97,6 @@
 
 - (IBAction)startMethronome:(id)sender
 {
-	self.startButton.hidden = YES;
-	self.stopButton.hidden = NO;
-	self.beatLabel.hidden = NO;
 	self.timeSlider.enabled = NO;
 	self.picker.userInteractionEnabled = NO;
 
@@ -109,11 +104,6 @@
 	
 	self.startDate = [NSDate date];
 	self.metaTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerUpdate:) userInfo:nil repeats:YES];
-}
-
-- (IBAction)stopMethronome:(id)sender
-{
-	[self.model setShouldStop: YES];
 }
 
 - (IBAction)timeValueChanged:(id)sender
@@ -135,9 +125,9 @@
 {
 	[self.metaTimer invalidate];
 	self.metaTimer = nil;
-	self.stopButton.hidden = YES;
+//	self.stopButton.hidden = YES;
 	self.startButton.hidden = NO;
-	self.beatLabel.hidden = YES;
+//	self.beatLabel.hidden = YES;
 	self.timeSlider.enabled = YES;
 	self.picker.userInteractionEnabled = YES;
 
