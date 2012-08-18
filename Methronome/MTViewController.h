@@ -6,17 +6,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "MTModel.h"
+@protocol MTViewController <NSObject>
+@property (assign, nonatomic) NSUInteger fromBPM;
+@property (assign, nonatomic) NSUInteger toBPM;
+@property (assign, nonatomic) NSTimeInterval timeInterval;
+@end
 
-@interface MTViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, MTModelDelegate>
-
-@property (retain, nonatomic) IBOutlet UIButton *startButton;
-
-@property (retain, nonatomic) IBOutlet UISlider *timeSlider;
-@property (retain, nonatomic) IBOutlet UILabel *timeLabel;
-@property (retain, nonatomic) IBOutlet UIPickerView *picker;
-
-- (IBAction)startMethronome:(id)sender;
+@interface MTViewController : UIViewController <MTViewController>
 
 @end

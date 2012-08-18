@@ -12,7 +12,7 @@
 @interface MTModel ()
 
 @property (assign, nonatomic) SystemSoundID beatSoundID;
-//@property (retain, nonatomic) 
+@property (assign) BOOL shouldStop;
 @end
 
 @implementation MTModel
@@ -35,16 +35,6 @@
 		self.beatSoundID = outputID;
     }
     return self;
-}
-
-- (void)startFromBPM: (NSUInteger) aFromBPM toBPM: (NSUInteger) aToBPM forTime: (NSTimeInterval) aTimeInterval
-{
-	self.shouldStop = NO;
-	self.fromBPM = aFromBPM;
-	self.toBPM = aToBPM;
-	self.timeInterval = aTimeInterval;
-	
-	[self performSelectorInBackground: @selector(backgroundMethronomeRunLoop) withObject: nil];
 }
 
 - (void)methronomeDidFinish
@@ -76,6 +66,17 @@
 		i += (self.fromBPM < self.toBPM) ? 1 : -1;
 	}
 	[self performSelectorOnMainThread:@selector(methronomeDidFinish) withObject:nil waitUntilDone:NO];
+}
+
+- (void)start
+{
+    self.shouldStop = NO;
+	[self performSelectorInBackground: @selector(backgroundMethronomeRunLoop) withObject: nil];
+}
+
+- (void)stop
+{
+    [self setShouldStop:YES];
 }
 
 @end

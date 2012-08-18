@@ -18,13 +18,12 @@
 
 @interface MTModel : NSObject
 
-@property (assign) id<MTModelDelegate> delegate;
+@property (weak) id<MTModelDelegate> delegate;
 
 @property (assign) NSUInteger fromBPM;
 @property (assign) NSUInteger toBPM;
 @property (assign) NSTimeInterval timeInterval;
 
-@property (assign) BOOL shouldStop;
-- (void)startFromBPM:(NSUInteger)aFromBPM toBPM:(NSUInteger)aToBPM forTime:(NSTimeInterval)aTimeInterval;
-
+- (void)start;
+- (void)stop;
 @end
