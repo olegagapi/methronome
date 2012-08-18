@@ -21,6 +21,8 @@
 		66CAF19415BC12E1000A0D9E /* Metronome.aif in Resources */ = {isa = PBXBuildFile; fileRef = 66CAF19315BC12E1000A0D9E /* Metronome.aif */; };
 		66F1CCAF158FA1FF00E8E0D5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F1CCAE158FA1FF00E8E0D5 /* MainStoryboard.storyboard */; };
 		66F7A64C15A74D99000DD5AC /* MTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F7A64B15A74D99000DD5AC /* MTModel.m */; };
+		952AD6D915DFD5B000093726 /* MTMethronomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952AD6D815DFD5B000093726 /* MTMethronomeViewController.m */; };
+		952AD6DC15DFD76300093726 /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952AD6DB15DFD76300093726 /* MTNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,10 @@
 		66F1CCAE158FA1FF00E8E0D5 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		66F7A64A15A74D99000DD5AC /* MTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTModel.h; sourceTree = "<group>"; };
 		66F7A64B15A74D99000DD5AC /* MTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTModel.m; sourceTree = "<group>"; };
+		952AD6D715DFD5B000093726 /* MTMethronomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMethronomeViewController.h; sourceTree = "<group>"; };
+		952AD6D815DFD5B000093726 /* MTMethronomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMethronomeViewController.m; sourceTree = "<group>"; };
+		952AD6DA15DFD76200093726 /* MTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTNavigationController.h; sourceTree = "<group>"; };
+		952AD6DB15DFD76300093726 /* MTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +103,14 @@
 				66F1CCAE158FA1FF00E8E0D5 /* MainStoryboard.storyboard */,
 				660D39AB15866917006D577D /* MTAppDelegate.h */,
 				660D39AC15866917006D577D /* MTAppDelegate.m */,
-				660D39B115866917006D577D /* MTViewController.h */,
-				660D39B215866917006D577D /* MTViewController.m */,
 				66F7A64A15A74D99000DD5AC /* MTModel.h */,
 				66F7A64B15A74D99000DD5AC /* MTModel.m */,
+				952AD6DA15DFD76200093726 /* MTNavigationController.h */,
+				952AD6DB15DFD76300093726 /* MTNavigationController.m */,
+				660D39B115866917006D577D /* MTViewController.h */,
+				660D39B215866917006D577D /* MTViewController.m */,
+				952AD6D715DFD5B000093726 /* MTMethronomeViewController.h */,
+				952AD6D815DFD5B000093726 /* MTMethronomeViewController.m */,
 				660D39A315866917006D577D /* Supporting Files */,
 			);
 			path = Methronome;
@@ -207,6 +217,8 @@
 				660D39AD15866917006D577D /* MTAppDelegate.m in Sources */,
 				660D39B315866917006D577D /* MTViewController.m in Sources */,
 				66F7A64C15A74D99000DD5AC /* MTModel.m in Sources */,
+				952AD6D915DFD5B000093726 /* MTMethronomeViewController.m in Sources */,
+				952AD6DC15DFD76300093726 /* MTNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
