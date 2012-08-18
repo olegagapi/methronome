@@ -23,6 +23,7 @@
 		66F7A64C15A74D99000DD5AC /* MTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F7A64B15A74D99000DD5AC /* MTModel.m */; };
 		952AD6D915DFD5B000093726 /* MTMethronomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952AD6D815DFD5B000093726 /* MTMethronomeViewController.m */; };
 		952AD6DC15DFD76300093726 /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952AD6DB15DFD76300093726 /* MTNavigationController.m */; };
+		952AD6E215DFF16700093726 /* MTSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952AD6E115DFF16700093726 /* MTSetupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		952AD6D815DFD5B000093726 /* MTMethronomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMethronomeViewController.m; sourceTree = "<group>"; };
 		952AD6DA15DFD76200093726 /* MTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTNavigationController.h; sourceTree = "<group>"; };
 		952AD6DB15DFD76300093726 /* MTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNavigationController.m; sourceTree = "<group>"; };
+		952AD6E015DFF16700093726 /* MTSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSetupViewController.h; sourceTree = "<group>"; };
+		952AD6E115DFF16700093726 /* MTSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSetupViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				952AD6DB15DFD76300093726 /* MTNavigationController.m */,
 				660D39B115866917006D577D /* MTViewController.h */,
 				660D39B215866917006D577D /* MTViewController.m */,
+				952AD6E015DFF16700093726 /* MTSetupViewController.h */,
+				952AD6E115DFF16700093726 /* MTSetupViewController.m */,
 				952AD6D715DFD5B000093726 /* MTMethronomeViewController.h */,
 				952AD6D815DFD5B000093726 /* MTMethronomeViewController.m */,
 				660D39A315866917006D577D /* Supporting Files */,
@@ -219,6 +224,7 @@
 				66F7A64C15A74D99000DD5AC /* MTModel.m in Sources */,
 				952AD6D915DFD5B000093726 /* MTMethronomeViewController.m in Sources */,
 				952AD6DC15DFD76300093726 /* MTNavigationController.m in Sources */,
+				952AD6E215DFF16700093726 /* MTSetupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
