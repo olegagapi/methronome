@@ -16,6 +16,7 @@
 		660D39B315866917006D577D /* MTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660D39B215866917006D577D /* MTViewController.m */; };
 		661A7E43158E23CA00D643F9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661A7E42158E23CA00D643F9 /* QuartzCore.framework */; };
 		662FE61E158CEA54004ECB9F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662FE61D158CEA54004ECB9F /* AudioToolbox.framework */; };
+		664006C515E43E0000FDAA95 /* MTExcahngeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 664006C415E43E0000FDAA95 /* MTExcahngeButton.m */; };
 		66774B71158F9A3100D19970 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 66774B70158F9A3100D19970 /* Icon.png */; };
 		66774B7B158F9BA100D19970 /* Icon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66774B7A158F9BA100D19970 /* Icon2x.png */; };
 		66CAF19415BC12E1000A0D9E /* Metronome.aif in Resources */ = {isa = PBXBuildFile; fileRef = 66CAF19315BC12E1000A0D9E /* Metronome.aif */; };
@@ -41,6 +42,8 @@
 		660D39B215866917006D577D /* MTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTViewController.m; sourceTree = "<group>"; };
 		661A7E42158E23CA00D643F9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		662FE61D158CEA54004ECB9F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		664006C315E43E0000FDAA95 /* MTExcahngeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTExcahngeButton.h; sourceTree = "<group>"; };
+		664006C415E43E0000FDAA95 /* MTExcahngeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTExcahngeButton.m; sourceTree = "<group>"; };
 		66774B70158F9A3100D19970 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		66774B7A158F9BA100D19970 /* Icon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon2x.png; path = ../Icon2x.png; sourceTree = "<group>"; };
 		66CAF19315BC12E1000A0D9E /* Metronome.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Metronome.aif; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				952AD6E115DFF16700093726 /* MTSetupViewController.m */,
 				952AD6D715DFD5B000093726 /* MTMethronomeViewController.h */,
 				952AD6D815DFD5B000093726 /* MTMethronomeViewController.m */,
+				664006C315E43E0000FDAA95 /* MTExcahngeButton.h */,
+				664006C415E43E0000FDAA95 /* MTExcahngeButton.m */,
 				660D39A315866917006D577D /* Supporting Files */,
 			);
 			path = Methronome;
@@ -225,6 +230,7 @@
 				952AD6D915DFD5B000093726 /* MTMethronomeViewController.m in Sources */,
 				952AD6DC15DFD76300093726 /* MTNavigationController.m in Sources */,
 				952AD6E215DFF16700093726 /* MTSetupViewController.m in Sources */,
+				664006C515E43E0000FDAA95 /* MTExcahngeButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,14 +15,12 @@ static NSString * const kMTStartMethronomeSegueKey = @"StartMethronomeSegue";
 
 @interface MTSetupViewController ()
 
-@property (retain, nonatomic) NSTimer* metaTimer;
 @property (retain, nonatomic) NSDate* startDate;
 
 @end
 
 @implementation MTSetupViewController
 
-@synthesize metaTimer = _metaTimer;
 @synthesize startButton = _startButton;
 @synthesize timeSlider = _timeSlider;
 @synthesize timeLabel = _timeLabel;
@@ -51,20 +49,22 @@ static NSString * const kMTStartMethronomeSegueKey = @"StartMethronomeSegue";
     }
 }
 
-- (void)timerUpdate:(NSTimer *)timer
-{
-	self.timeSlider.value = (self.timeInterval + [self.startDate timeIntervalSinceNow]) / 60.0;
-	NSUInteger min = floor(self.timeSlider.value);
-	NSUInteger sec = (self.timeSlider.value - min) * 60.0;
-	self.timeLabel.text = [NSString stringWithFormat: @"%umin %usec", min, sec];
-}
-
 - (IBAction)timeValueChanged:(id)sender
 {
 	self.timeInterval = self.timeSlider.value * 60.0;
 	NSUInteger min = floor(self.timeInterval / 60.0);
 	NSUInteger sec = floor(self.timeInterval - min * 60);
 	self.timeLabel.text = [NSString stringWithFormat: @"%umin %usec", min, sec];
+}
+
+- (IBAction)onExchangeButton:(id)sender
+{
+	[self.picker selectRow: self.toBPM - 30 inComponent: 0 animated: YES];
+	[self.picker selectRow: self.fromBPM - 30 inComponent: 1 animated: YES];
+		//XOR-swap ftw!
+	self.fromBPM^=self.toBPM;
+	self.toBPM^=self.fromBPM;
+	self.fromBPM^=self.toBPM;
 }
 
 #pragma mark UIPickerViewDataSource
