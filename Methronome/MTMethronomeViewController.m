@@ -15,6 +15,8 @@
 
 @property (retain, nonatomic) MTModel* model;
 
+- (void)setupBeatLabel;
+
 @end
 
 @implementation MTMethronomeViewController
@@ -34,9 +36,22 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setupBeatLabel];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [self.model start];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.model stop];
+    [super viewWillDisappear:animated];
 }
 
 - (void)setFromBPM:(NSUInteger)fromBPM
@@ -54,9 +69,13 @@
     [self.model setTimeInterval:timeInterval];
 }
 
+- (void)setupBeatLabel
+{
+    [self.beatLabel setText:[NSString stringWithFormat:@"%d", self.fromBPM]];    
+}
+
 - (IBAction)stopMethronome:(id)sender
 {
-    [self.model stop];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

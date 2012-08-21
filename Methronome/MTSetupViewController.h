@@ -16,6 +16,4 @@
 @property (retain, nonatomic) IBOutlet UILabel *timeLabel;
 @property (retain, nonatomic) IBOutlet UIPickerView *picker;
 
-- (IBAction)startMethronome:(id)sender;
-
 @end

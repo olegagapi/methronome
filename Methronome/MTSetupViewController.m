@@ -59,12 +59,6 @@ static NSString * const kMTStartMethronomeSegueKey = @"StartMethronomeSegue";
 	self.timeLabel.text = [NSString stringWithFormat: @"%umin %usec", min, sec];
 }
 
-- (IBAction)startMethronome:(id)sender
-{
-	self.startDate = [NSDate date];
-	self.metaTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerUpdate:) userInfo:nil repeats:YES];
-}
-
 - (IBAction)timeValueChanged:(id)sender
 {
 	self.timeInterval = self.timeSlider.value * 60.0;
