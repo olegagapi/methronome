@@ -29,7 +29,7 @@
 	[arrowBodyPath addQuadCurveToPoint: startPoint controlPoint: CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect) * 2)];
 	[arrowBodyPath stroke];
 	[arrowBodyPath fill];
-		//TODO - finish arrow
+		//TODO: finish arrow
 }
 
 @end
