@@ -8,6 +8,7 @@
 
 #import "MTMethronomeViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <objc/runtime.h>
 
 @interface MTMethronomeViewController ()
 @property (retain, nonatomic) NSTimer* metaTimer;
@@ -54,14 +55,29 @@
     [super viewWillDisappear:animated];
 }
 
+-(NSUInteger)fromBPM
+{
+    return [self.model fromBPM];
+}
+
 - (void)setFromBPM:(NSUInteger)fromBPM
 {
     [self.model setFromBPM:fromBPM];
 }
 
+- (NSUInteger)toBPM
+{
+    return [self.model toBPM];
+}
+
 - (void)setToBPM:(NSUInteger)toBPM
 {
     [self.model setToBPM:toBPM];
+}
+
+- (NSTimeInterval)timeInterval
+{
+    return [self.model timeInterval];
 }
 
 - (void)setTimeInterval:(NSTimeInterval)timeInterval
