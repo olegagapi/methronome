@@ -67,12 +67,13 @@
 		NSDate* date = [NSDate date];
 		NSTimeInterval beatTime = 60.0 / i;
 		[self performSelectorOnMainThread:@selector(methronomeDidChangeBPM:) withObject: [NSNumber numberWithUnsignedInteger: i] waitUntilDone:NO];
-		while (([date timeIntervalSinceNow] > -roundTime) && (!self.shouldStop))
+		NSTimeInterval correctionTime = 0.0;
+		while ((-[date timeIntervalSinceNow] < roundTime - correctionTime) && (!self.shouldStop))
 		{
 			AudioServicesPlaySystemSound(self.beatSoundID);
-			NSLog(@"tuc!");
 			[NSThread sleepForTimeInterval: beatTime];
 		}
+		correctionTime = -[date timeIntervalSinceNow] - (roundTime - correctionTime);
 		i += (self.fromBPM < self.toBPM) ? 1 : -1;
 	}
 	[self performSelectorOnMainThread:@selector(methronomeDidFinish) withObject:nil waitUntilDone:NO];
