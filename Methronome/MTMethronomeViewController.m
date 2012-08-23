@@ -92,7 +92,7 @@
 
 - (IBAction)stopMethronome:(id)sender
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.model stop];
 }
 
 - (void)animateBeatWithBPM:(NSUInteger)currentBPM
@@ -116,6 +116,7 @@
 
 - (void)methronome:(MTModel *)model didFinish:(BOOL)succesfully
 {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
