@@ -20,10 +20,11 @@
 
 @property (weak) id<MTModelDelegate> delegate;
 
-@property (assign) NSUInteger fromBPM;
-@property (assign) NSUInteger toBPM;
-@property (assign) NSTimeInterval timeInterval;
+@property (nonatomic, assign) NSUInteger fromBPM;
+@property (nonatomic, assign) NSUInteger toBPM;
+@property (nonatomic, assign) NSTimeInterval timeInterval;
 
 - (void)start;
 - (void)stop;
+
 @end
