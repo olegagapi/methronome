@@ -12,6 +12,7 @@
 @interface MTModel ()
 
 @property (assign, nonatomic) SystemSoundID beatSoundID;
+@property (assign, nonatomic) SystemSoundID strongBeatSoundID;
 
 @property (assign) BOOL shouldStop;
 
@@ -25,6 +26,8 @@
 @synthesize shouldStop = _shouldStop;
 @synthesize delegate = _delegate;
 @synthesize beatSoundID = _beatSoundID;
+@synthesize strongBeatSoundID = _strongBeatSoundID;
+@synthesize strongMesure = _strongMesure;
 
 - (id)init
 {
@@ -39,11 +42,14 @@
         AudioSessionSetProperty(kAudioSessionProperty_PreferredHardwareIOBufferDuration, sizeof(preferredBufferDuration), &preferredBufferDuration);
         AudioSessionSetActive(true);
 
-			//loading metronome sound
+			//loading metronome sounds
 		SystemSoundID outputID = 0;
 		NSURL *url = [[NSURL alloc] initFileURLWithPath: [[NSBundle mainBundle] pathForResource: @"Metronome" ofType: @"aif"]];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &outputID);
 		self.beatSoundID = outputID;
+		url = [[NSURL alloc] initFileURLWithPath: [[NSBundle mainBundle] pathForResource: @"StrongMetronome" ofType: @"aif"]];
+		AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &outputID);
+		self.strongBeatSoundID = outputID;
     }
     return self;
 }
@@ -62,6 +68,7 @@
 {
 	NSTimeInterval roundTime = self.timeInterval / abs(self.toBPM - self.fromBPM);
 	NSUInteger i = self.fromBPM;
+	NSUInteger measure = self.strongMesure;
 	while (!self.shouldStop && (i != self.toBPM))
 	{
 		NSLog(@"current BPM: %u", i);
@@ -71,7 +78,16 @@
 		NSTimeInterval correctionTime = 0.0;
 		while ((-[date timeIntervalSinceNow] < roundTime - correctionTime) && (!self.shouldStop))
 		{
-			AudioServicesPlaySystemSound(self.beatSoundID);
+			if (measure == self.strongMesure)
+			{
+				AudioServicesPlaySystemSound(self.strongBeatSoundID);
+				measure = 0;
+			}
+			else
+			{
+				AudioServicesPlaySystemSound(self.beatSoundID);
+			}
+			measure++;
 			[NSThread sleepForTimeInterval: beatTime];
 		}
 		correctionTime = -[date timeIntervalSinceNow] - (roundTime - correctionTime);

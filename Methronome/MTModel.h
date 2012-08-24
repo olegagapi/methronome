@@ -23,7 +23,7 @@
 @property (nonatomic, assign) NSUInteger fromBPM;
 @property (nonatomic, assign) NSUInteger toBPM;
 @property (nonatomic, assign) NSTimeInterval timeInterval;
-
+@property (nonatomic, assign) NSUInteger strongMesure;
 - (void)start;
 - (void)stop;
 
