@@ -10,8 +10,8 @@
 
 @implementation MTViewController
 
-@synthesize fromBPM;
-@synthesize toBPM;
-@synthesize timeInterval;
+@synthesize fromBPM = _fromBPM;
+@synthesize toBPM = _toBPM;
+@synthesize timeInterval = _timeInterval;
 
 @end
