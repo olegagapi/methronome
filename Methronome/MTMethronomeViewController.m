@@ -39,8 +39,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	[self setupBeatLabel];
     [super viewWillAppear:animated];
-    [self setupBeatLabel];
 }
 
 - (void)viewDidAppear:(BOOL)animated

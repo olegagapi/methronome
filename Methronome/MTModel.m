@@ -31,14 +31,15 @@
     self = [super init];
     if (self)
 	{
-//setuping audio session
+		self.shouldStop = YES;
+			//setuping audio session
         UInt32 sessionCategory = kAudioSessionCategory_MediaPlayback;
         AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
         Float32 preferredBufferDuration = 0.005;
         AudioSessionSetProperty(kAudioSessionProperty_PreferredHardwareIOBufferDuration, sizeof(preferredBufferDuration), &preferredBufferDuration);
         AudioSessionSetActive(true);
 
-//loading metronome sound
+			//loading metronome sound
 		SystemSoundID outputID = 0;
 		NSURL *url = [[NSURL alloc] initFileURLWithPath: [[NSBundle mainBundle] pathForResource: @"Metronome" ofType: @"aif"]];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &outputID);
