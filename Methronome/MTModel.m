@@ -54,6 +54,11 @@
     return self;
 }
 
+- (NSUInteger)strongMesure
+{
+    return 2;
+}
+
 - (void)methronomeDidFinish
 {
 	[self.delegate methronome:self didFinish: !self.shouldStop];
@@ -81,6 +86,7 @@
 			if (measure == self.strongMesure)
 			{
 				AudioServicesPlaySystemSound(self.strongBeatSoundID);
+//				AudioServicesPlaySystemSound(self.beatSoundID);
 				measure = 0;
 			}
 			else

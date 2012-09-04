@@ -8,16 +8,11 @@
 
 #import "MTSetupViewController.h"
 #import "MTMethronomeViewController.h"
+#import "MTTimeIntervalView.h"
+#import "MTConstants.h"
+
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioServices.h>
-
-static NSUInteger kMTDefaultFromBPM         = 60.0;
-static NSUInteger kMTDefaultToBPM           = 120.0;
-static NSUInteger kMTPickerViewMinimumValue = 30.0;
-
-static NSString * const kMTStartMethronomeSegueKey = @"StartMethronomeSegue";
-static NSString * const kMTFromBPMDefaultsKey = @"fromBPM";
-static NSString * const kMTToBPMDefaultsKey = @"toBPM";
 
 @interface MTSetupViewController ()
 
@@ -26,12 +21,10 @@ static NSString * const kMTToBPMDefaultsKey = @"toBPM";
 @end
 
 @implementation MTSetupViewController
-
 @synthesize startButton = _startButton;
-@synthesize timeSlider = _timeSlider;
-@synthesize timeLabel = _timeLabel;
 @synthesize startDate = _startDate;
 @synthesize picker = _picker;
+@synthesize timeIntervalView = _timeIntervalView;
 
 - (void)viewDidLoad
 {
@@ -40,8 +33,9 @@ static NSString * const kMTToBPMDefaultsKey = @"toBPM";
     NSUInteger toBPM = [[NSUserDefaults standardUserDefaults] integerForKey:kMTToBPMDefaultsKey];
 	self.toBPM = (0 == toBPM) ? kMTDefaultToBPM : toBPM;
     [self updatePickerView:self.picker animated:YES];
-	[self timeValueChanged: self];
     
+    NSUInteger timeInterval = [[NSUserDefaults standardUserDefaults] integerForKey:kMTTimeIntervalDefaultsKey];
+    self.timeIntervalView.currentValue = (0 == timeInterval) ? kMTDefaultTimeInterval : timeInterval;
     [super viewDidLoad];
 }
 
@@ -70,25 +64,12 @@ static NSString * const kMTToBPMDefaultsKey = @"toBPM";
         MTMethronomeViewController *methronomeViewController = segue.destinationViewController;
         [methronomeViewController setFromBPM:self.fromBPM];
         [methronomeViewController setToBPM:self.toBPM];
-        [methronomeViewController setTimeInterval:self.timeInterval];
+        [methronomeViewController setTimeInterval:self.timeIntervalView.currentValue];
     }
-}
-
-- (IBAction)timeValueChanged:(id)sender
-{
-	self.timeInterval = self.timeSlider.value * 60.0;
-	NSUInteger min = floor(self.timeInterval / 60.0);
-	NSUInteger sec = floor(self.timeInterval - min * 60);
-	self.timeLabel.text = [NSString stringWithFormat: @"%umin %usec", min, sec];
 }
 
 - (IBAction)onExchangeButton:(id)sender
 {
-    //XOR-swap ftw!
-//	self.fromBPM ^= self.toBPM;
-//	self.toBPM ^= self.fromBPM;
-//	self.fromBPM ^= self.toBPM;
-    
     NSUInteger newFromBPM = self.toBPM;
     [self setToBPM:self.fromBPM];
     [self setFromBPM:newFromBPM];
