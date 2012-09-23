@@ -65,6 +65,7 @@
         [methronomeViewController setFromBPM:self.fromBPM];
         [methronomeViewController setToBPM:self.toBPM];
         [methronomeViewController setTimeInterval:self.timeIntervalView.currentValue];
+        [methronomeViewController setStrongMesure:self.strongMesure];
     }
 }
 

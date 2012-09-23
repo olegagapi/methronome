@@ -85,6 +85,16 @@
     [self.model setTimeInterval:timeInterval];
 }
 
+-(NSUInteger)strongMesure
+{
+    return [self.model strongMesure];
+}
+
+- (void)setStrongMesure:(NSUInteger)strongMesure
+{
+    [self.model setStrongMesure:strongMesure];
+}
+
 - (void)setupBeatLabel
 {
     [self.beatLabel setText:[NSString stringWithFormat:@"%d", self.fromBPM]];    

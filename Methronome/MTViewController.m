@@ -13,5 +13,6 @@
 @synthesize fromBPM = _fromBPM;
 @synthesize toBPM = _toBPM;
 @synthesize timeInterval = _timeInterval;
+@synthesize strongMesure = _strongMesure;
 
 @end

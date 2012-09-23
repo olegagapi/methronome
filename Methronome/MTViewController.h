@@ -7,6 +7,7 @@
 //
 
 @protocol MTViewController <NSObject>
+@property (nonatomic, assign) NSUInteger strongMesure;
 @property (assign, nonatomic) NSUInteger fromBPM;
 @property (assign, nonatomic) NSUInteger toBPM;
 @property (assign, nonatomic) NSTimeInterval timeInterval;
