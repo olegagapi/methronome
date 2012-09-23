@@ -98,9 +98,22 @@
 
 #pragma mark UIPickerViewDelegate
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
-	return [[NSNumber numberWithInteger: (row + kMTPickerViewMinimumValue)] description];
+	CGSize size = [pickerView rowSizeForComponent: component];
+	UILabel* label = nil;
+	if (nil != view && [view isKindOfClass:[UIView class]])
+	{
+		label = (UILabel*)view;
+	}
+	else
+	{
+		label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+		[label setTextAlignment:UITextAlignmentCenter];
+		[label setFont: [UIFont boldSystemFontOfSize:18]];
+	}
+	[label setText: [NSString stringWithFormat: @"%d", row + kMTPickerViewMinimumValue]];
+	return label;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
