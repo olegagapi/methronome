@@ -48,17 +48,9 @@
 
 - (NSString *)timeStringWithSeconds:(NSUInteger)someSeconds
 {
-    NSString *timeText = [NSString string];
-    NSUInteger minutes = someSeconds / 60;
-    NSUInteger seconds = someSeconds % 60;
-    if (0 != minutes)
-    {
-        timeText = [timeText stringByAppendingString:[NSString stringWithFormat:@"%dm ", minutes]];
-    }
-    if (0 != seconds)
-    {
-        timeText = [timeText stringByAppendingString:[NSString stringWithFormat:@"%ds", seconds]];
-    }
+	NSUInteger minutes = someSeconds / 60;
+	NSUInteger seconds = someSeconds % 60;
+    NSString *timeText = [NSString stringWithFormat:@"%02dm %02ds", minutes, seconds];
     return timeText;
 }
 
@@ -86,11 +78,12 @@
     }
 }
 
-- (void)onSliderValueChanged:(id)sender
+- (void)onSliderValueChanged:(UISlider *)sender
 {
-    NSInteger value = [[NSNumber numberWithFloat:[(UISlider *)sender value]] integerValue];
-    [self setCurrentValue:value];
-    [[NSUserDefaults standardUserDefaults] setInteger:value forKey:kMTTimeIntervalDefaultsKey];
+	float discreteValue = ((int)[sender value] / 15) * 15;
+	NSLog(@"%f, %f", [sender value], discreteValue);
+    [self setCurrentValue:discreteValue];
+    [[NSUserDefaults standardUserDefaults] setInteger:discreteValue forKey:kMTTimeIntervalDefaultsKey];
 }
 
 @end
