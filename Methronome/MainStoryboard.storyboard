@@ -94,6 +94,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="hCy-bk-Wxl">
+                                <rect key="frame" x="20" y="277" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="None" width="53.833333333333336"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                    <segment title="5"/>
+                                    <segment title="7"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onMesureSegmentedControl:" destination="6Sq-y8-AbN" eventType="valueChanged" id="IhD-GG-HNF"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -171,6 +186,8 @@
         <class className="MTSetupViewController" superclassName="MTViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MTSetupViewController.h"/>
             <relationships>
+                <relationship kind="action" name="onExchangeButton:"/>
+                <relationship kind="action" name="onMesureSegmentedControl:" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timeIntervalView" candidateClass="MTTimeIntervalView"/>

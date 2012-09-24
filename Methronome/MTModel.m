@@ -78,7 +78,7 @@
 		NSTimeInterval correctionTime = 0.0;
 		while ((-[date timeIntervalSinceNow] < roundTime - correctionTime) && (!self.shouldStop))
 		{
-			if (measure == self.strongMesure)
+			if (measure && (measure == self.strongMesure))
 			{
 				AudioServicesPlaySystemSound(self.strongBeatSoundID);
 				AudioServicesPlaySystemSound(self.beatSoundID);

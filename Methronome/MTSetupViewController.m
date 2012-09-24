@@ -78,6 +78,31 @@
     [self updatePickerView:self.picker animated:YES];
 }
 
+- (IBAction)onMesureSegmentedControl:(UISegmentedControl *)sender
+{
+	switch ([sender selectedSegmentIndex])
+	{
+		case 0:
+			self.strongMesure = 0;
+			break;
+		case 1:
+			self.strongMesure = 2;
+			break;
+		case 2:
+			self.strongMesure = 3;
+			break;
+		case 3:
+			self.strongMesure = 4;
+			break;
+		case 4:
+			self.strongMesure = 5;
+			break;
+		case 5:
+			self.strongMesure = 7;
+			break;
+	}
+}
+
 - (void)updatePickerView:(UIPickerView *)pickerView animated:(BOOL)animated
 {
 	[pickerView selectRow: self.fromBPM - kMTPickerViewMinimumValue inComponent: 0 animated: animated];
