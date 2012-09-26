@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" id="Cyg-WS-f3c">
-                                <rect key="frame" x="0.0" y="42" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="27" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="6Sq-y8-AbN" id="HqK-As-56c"/>
@@ -53,21 +53,21 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="From:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="tJ7-bg-We7">
-                                <rect key="frame" x="20" y="13" width="45" height="21"/>
+                                <rect key="frame" x="20" y="3" width="45" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bcp-dw-VzH">
-                                <rect key="frame" x="258" y="13" width="25" height="21"/>
+                                <rect key="frame" x="258" y="3" width="25" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="feO-vb-eBF">
-                                <rect key="frame" x="135" y="125" width="50" height="50"/>
+                                <rect key="frame" x="135" y="110" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" image="SwitchArrow.png">
@@ -82,7 +82,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="BPk-7A-itM" customClass="MTTimeIntervalView">
-                                <rect key="frame" x="0.0" y="338" width="320" height="57"/>
+                                <rect key="frame" x="0.0" y="309" width="320" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -95,7 +95,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="hCy-bk-Wxl">
-                                <rect key="frame" x="20" y="277" width="280" height="44"/>
+                                <rect key="frame" x="20" y="255" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="None" width="53.833333333333336"/>
@@ -109,6 +109,28 @@
                                     <action selector="onMesureSegmentedControl:" destination="6Sq-y8-AbN" eventType="valueChanged" id="IhD-GG-HNF"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8eU-u7-9CZ">
+                                <rect key="frame" x="27" y="374" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Stop when time's up">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTimesUpCheckbox:" destination="6Sq-y8-AbN" eventType="touchUpInside" id="tMN-7U-RuZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Stop metronome when time's up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3kI-ct-jJb">
+                                <rect key="frame" x="51" y="374" width="249" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -117,6 +139,7 @@
                     <connections>
                         <outlet property="picker" destination="Cyg-WS-f3c" id="kxv-bB-SCJ"/>
                         <outlet property="startButton" destination="PDa-H9-6KL" id="oab-4H-aSl"/>
+                        <outlet property="stopWhenTimesUpCheckbox" destination="8eU-u7-9CZ" id="olO-3Q-lRA"/>
                         <outlet property="timeIntervalView" destination="BPk-7A-itM" id="zhL-Y3-5J1"/>
                     </connections>
                 </viewController>
@@ -188,8 +211,10 @@
             <relationships>
                 <relationship kind="action" name="onExchangeButton:"/>
                 <relationship kind="action" name="onMesureSegmentedControl:" candidateClass="UISegmentedControl"/>
+                <relationship kind="action" name="onTimesUpCheckbox:"/>
                 <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="stopWhenTimesUpCheckbox" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timeIntervalView" candidateClass="MTTimeIntervalView"/>
             </relationships>
         </class>

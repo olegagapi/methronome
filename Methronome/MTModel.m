@@ -7,6 +7,7 @@
 //
 
 #import "MTModel.h"
+#import "MTConstants.h"
 #import <AudioToolbox/AudioServices.h>
 
 @interface MTModel ()
@@ -69,8 +70,14 @@
 	NSTimeInterval roundTime = self.timeInterval / abs(self.toBPM - self.fromBPM);
 	NSUInteger i = self.fromBPM;
 	NSUInteger measure = self.strongMesure;
-	while (!self.shouldStop && (i != self.toBPM))
+    BOOL shouldStopWhenTimesUp = [[NSUserDefaults standardUserDefaults] boolForKey:kMTStopWhenTimesUpKey];
+	while (!self.shouldStop)
 	{
+        if (i == self.toBPM && shouldStopWhenTimesUp)
+        {
+            break;
+        }
+
 		NSLog(@"current BPM: %u", i);
 		NSDate* date = [NSDate date];
 		NSTimeInterval beatTime = 60.0 / i;
@@ -92,7 +99,10 @@
 			[NSThread sleepForTimeInterval: beatTime];
 		}
 		correctionTime = -[date timeIntervalSinceNow] - (roundTime - correctionTime);
-		i += (self.fromBPM < self.toBPM) ? 1 : -1;
+        if (i != self.toBPM)
+        {
+            i += (self.fromBPM < self.toBPM) ? 1 : -1;
+        }
 	}
 	[self performSelectorOnMainThread:@selector(methronomeDidFinish) withObject:nil waitUntilDone:NO];
 }
