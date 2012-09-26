@@ -26,6 +26,9 @@
 		952AD6D915DFD5B000093726 /* MTMethronomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952AD6D815DFD5B000093726 /* MTMethronomeViewController.m */; };
 		952AD6DC15DFD76300093726 /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952AD6DB15DFD76300093726 /* MTNavigationController.m */; };
 		952AD6E215DFF16700093726 /* MTSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952AD6E115DFF16700093726 /* MTSetupViewController.m */; };
+		958265F51612E05F003EA480 /* one.png in Resources */ = {isa = PBXBuildFile; fileRef = 958265F21612E05F003EA480 /* one.png */; };
+		958265F61612E05F003EA480 /* two.png in Resources */ = {isa = PBXBuildFile; fileRef = 958265F31612E05F003EA480 /* two.png */; };
+		958265F71612E05F003EA480 /* zero.png in Resources */ = {isa = PBXBuildFile; fileRef = 958265F41612E05F003EA480 /* zero.png */; };
 		9582E17215F6AD340095284C /* MTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9582E17115F6AD340095284C /* MTConstants.m */; };
 		958368E015E7CF49008BDC21 /* MTTimeIntervalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 958368DF15E7CF49008BDC21 /* MTTimeIntervalView.xib */; };
 		958368E415E7D134008BDC21 /* MTTimeIntervalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 958368E315E7D134008BDC21 /* MTTimeIntervalView.m */; };
@@ -61,6 +64,9 @@
 		952AD6DB15DFD76300093726 /* MTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNavigationController.m; sourceTree = "<group>"; };
 		952AD6E015DFF16700093726 /* MTSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSetupViewController.h; sourceTree = "<group>"; };
 		952AD6E115DFF16700093726 /* MTSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSetupViewController.m; sourceTree = "<group>"; };
+		958265F21612E05F003EA480 /* one.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = one.png; sourceTree = "<group>"; };
+		958265F31612E05F003EA480 /* two.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = two.png; sourceTree = "<group>"; };
+		958265F41612E05F003EA480 /* zero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zero.png; sourceTree = "<group>"; };
 		9582E17015F6AD340095284C /* MTConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTConstants.h; sourceTree = "<group>"; };
 		9582E17115F6AD340095284C /* MTConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTConstants.m; sourceTree = "<group>"; };
 		958368DF15E7CF49008BDC21 /* MTTimeIntervalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTTimeIntervalView.xib; sourceTree = "<group>"; };
@@ -146,6 +152,9 @@
 		660D39A315866917006D577D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				958265F21612E05F003EA480 /* one.png */,
+				958265F31612E05F003EA480 /* two.png */,
+				958265F41612E05F003EA480 /* zero.png */,
 				663045D8160E742F0025FF36 /* SwitchArrow.png */,
 				66CAF19315BC12E1000A0D9E /* Metronome.aif */,
 				66E84EA015E7B07900739121 /* StrongMetronome.aif */,
@@ -219,6 +228,9 @@
 				66E84EA115E7B07900739121 /* StrongMetronome.aif in Resources */,
 				958368E015E7CF49008BDC21 /* MTTimeIntervalView.xib in Resources */,
 				663045D9160E742F0025FF36 /* SwitchArrow.png in Resources */,
+				958265F51612E05F003EA480 /* one.png in Resources */,
+				958265F61612E05F003EA480 /* two.png in Resources */,
+				958265F71612E05F003EA480 /* zero.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
