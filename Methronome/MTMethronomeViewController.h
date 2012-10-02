@@ -13,7 +13,10 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UILabel *beatLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *stopWhenTimeIsUpSwitch;
 
 - (IBAction)stopMethronome:(id)sender;
+
+- (IBAction)onStopWhenTimeIsUpSwitch:(id)sender;
 
 @end

@@ -29,6 +29,7 @@
 @synthesize beatSoundID = _beatSoundID;
 @synthesize strongBeatSoundID = _strongBeatSoundID;
 @synthesize strongMesure = _strongMesure;
+@synthesize stopWhenTimeIsUp = _stopWhenTimeIsUp;
 
 - (id)init
 {
@@ -70,10 +71,9 @@
 	NSTimeInterval roundTime = self.timeInterval / abs(self.toBPM - self.fromBPM);
 	NSUInteger i = self.fromBPM;
 	NSUInteger measure = self.strongMesure;
-    BOOL shouldStopWhenTimesUp = [[NSUserDefaults standardUserDefaults] boolForKey:kMTStopWhenTimesUpKey];
 	while (!self.shouldStop)
 	{
-        if (i == self.toBPM && shouldStopWhenTimesUp)
+        if (i == self.toBPM && self.stopWhenTimeIsUp)
         {
             break;
         }

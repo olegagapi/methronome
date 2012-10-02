@@ -17,17 +17,14 @@
 @interface MTSetupViewController ()
 
 @property (strong, nonatomic) NSDate* startDate;
-@property (assign, nonatomic) BOOL stopWhenTimesUp;
 - (void)updatePickerView:(UIPickerView *)pickerView animated:(BOOL)animated;
 @end
 
 @implementation MTSetupViewController
 @synthesize startButton = _startButton;
 @synthesize startDate = _startDate;
-@synthesize stopWhenTimesUp = _stopWhenTimesUp;
 @synthesize picker = _picker;
 @synthesize timeIntervalView = _timeIntervalView;
-@synthesize stopWhenTimesUpCheckbox = _stopWhenTimesUpCheckbox;
 
 - (void)viewDidLoad
 {
@@ -41,15 +38,7 @@
     // time interval view
     NSUInteger timeInterval = [[NSUserDefaults standardUserDefaults] integerForKey:kMTTimeIntervalDefaultsKey];
     self.timeIntervalView.currentValue = (0 == timeInterval) ? kMTDefaultTimeInterval : timeInterval;
-#ifdef DEBUG
-#warning TODO: find cool images for checkbox
-#endif
-    // stop when time's up checkbox
-    self.stopWhenTimesUp = [[NSUserDefaults standardUserDefaults] boolForKey:kMTStopWhenTimesUpKey];
-    [self.stopWhenTimesUpCheckbox setBackgroundImage:[UIImage imageNamed:@"two.png"] forState:UIControlStateNormal];
-    [self.stopWhenTimesUpCheckbox setBackgroundImage:[UIImage imageNamed:@"one.png"] forState:UIControlStateSelected];
-    [self.stopWhenTimesUpCheckbox setSelected:self.stopWhenTimesUp];
-    
+   
     [super viewDidLoad];
 }
 
@@ -115,15 +104,6 @@
 			self.strongMesure = 7;
 			break;
 	}
-}
-
-- (IBAction)onTimesUpCheckbox:(id)sender
-{
-    UIButton *aButton = (UIButton *)sender;
-    self.stopWhenTimesUp = !self.stopWhenTimesUp;
-    [[NSUserDefaults standardUserDefaults] setBool:self.stopWhenTimesUp forKey:kMTStopWhenTimesUpKey];
-    [aButton setSelected:self.stopWhenTimesUp];
-    NSLog((self.stopWhenTimesUp ? @"stop when time's up" : @"continue when time's up"));
 }
 
 - (void)updatePickerView:(UIPickerView *)pickerView animated:(BOOL)animated

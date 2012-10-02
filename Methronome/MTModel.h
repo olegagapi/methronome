@@ -21,6 +21,8 @@
 @property (nonatomic, assign) NSUInteger toBPM;
 @property (nonatomic, assign) NSTimeInterval timeInterval;
 @property (nonatomic, assign) NSUInteger strongMesure;
+@property (assign) BOOL stopWhenTimeIsUp;
+
 - (void)start;
 - (void)stop;
 

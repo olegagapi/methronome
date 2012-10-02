@@ -8,7 +8,7 @@
 
 #import "MTMethronomeViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import <objc/runtime.h>
+#import "MTConstants.h"
 
 @interface MTMethronomeViewController ()
 @property (retain, nonatomic) NSTimer* metaTimer;
@@ -23,6 +23,7 @@
 @implementation MTMethronomeViewController
 @synthesize stopButton = _stopButton;
 @synthesize beatLabel = _beatLabel;
+@synthesize stopWhenTimeIsUpSwitch = _stopWhenTimeIsUpSwitch;
 
 @synthesize model = _model;
 
@@ -35,6 +36,12 @@
 		self.model.delegate = self;
     }
     return self;
+}
+
+- (void) viewDidLoad
+{
+	self.stopWhenTimeIsUpSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey: kMTStopWhenTimesUpKey];
+	[self onStopWhenTimeIsUpSwitch: self.stopWhenTimeIsUpSwitch];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -103,6 +110,12 @@
 - (IBAction)stopMethronome:(id)sender
 {
     [self.model stop];
+}
+
+- (IBAction)onStopWhenTimeIsUpSwitch:(UISwitch*)sender
+{
+	self.model.stopWhenTimeIsUp = sender.isOn;
+	[[NSUserDefaults standardUserDefaults] setBool: sender.isOn forKey: kMTStopWhenTimesUpKey];
 }
 
 - (void)animateBeatWithBPM:(NSUInteger)currentBPM

@@ -14,6 +14,5 @@
 @property (retain, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @property (weak, nonatomic) IBOutlet MTTimeIntervalView *timeIntervalView;
-@property (weak, nonatomic) IBOutlet UIButton *stopWhenTimesUpCheckbox;
 
 @end
