@@ -78,7 +78,6 @@
             break;
         }
 
-		NSLog(@"current BPM: %u", i);
 		NSDate* date = [NSDate date];
 		NSTimeInterval beatTime = 60.0 / i;
 		[self performSelectorOnMainThread:@selector(methronomeDidChangeBPM:) withObject: [NSNumber numberWithUnsignedInteger: i] waitUntilDone:NO];

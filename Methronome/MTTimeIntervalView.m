@@ -81,7 +81,6 @@
 - (void)onSliderValueChanged:(UISlider *)sender
 {
 	float discreteValue = ((int)[sender value] / 15) * 15;
-	NSLog(@"%f, %f", [sender value], discreteValue);
     [self setCurrentValue:discreteValue];
     [[NSUserDefaults standardUserDefaults] setInteger:discreteValue forKey:kMTTimeIntervalDefaultsKey];
 }
