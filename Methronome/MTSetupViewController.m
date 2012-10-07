@@ -38,7 +38,10 @@
     // time interval view
     NSUInteger timeInterval = [[NSUserDefaults standardUserDefaults] integerForKey:kMTTimeIntervalDefaultsKey];
     self.timeIntervalView.currentValue = (0 == timeInterval) ? kMTDefaultTimeInterval : timeInterval;
-   
+
+	//strong mesure
+	self.strongMesure = [[NSUserDefaults standardUserDefaults] integerForKey:kMTStrongMesureDefaultsKey];
+
     [super viewDidLoad];
 }
 
@@ -96,6 +99,7 @@
 			self.strongMesure = [sender selectedSegmentIndex] + 2;
 			break;
 	}
+	[[NSUserDefaults standardUserDefaults] setInteger:self.strongMesure forKey:kMTStrongMesureDefaultsKey];
 }
 
 - (void)updatePickerView:(UIPickerView *)pickerView animated:(BOOL)animated

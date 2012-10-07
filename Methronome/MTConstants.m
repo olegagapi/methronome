@@ -18,3 +18,4 @@ NSString * const kMTFromBPMDefaultsKey = @"fromBPM";
 NSString * const kMTToBPMDefaultsKey = @"toBPM";
 NSString * const kMTTimeIntervalDefaultsKey = @"timeInterval";
 NSString * const kMTStopWhenTimesUpKey = @"stopWhenTimesUp";
+NSString * const kMTStrongMesureDefaultsKey = @"strongMesure";

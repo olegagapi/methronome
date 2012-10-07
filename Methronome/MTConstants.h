@@ -16,3 +16,4 @@ extern NSString * const kMTFromBPMDefaultsKey;
 extern NSString * const kMTToBPMDefaultsKey;
 extern NSString * const kMTTimeIntervalDefaultsKey;
 extern NSString * const kMTStopWhenTimesUpKey;
+extern NSString * const kMTStrongMesureDefaultsKey;
