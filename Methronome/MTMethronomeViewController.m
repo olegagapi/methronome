@@ -40,8 +40,18 @@
 
 - (void) viewDidLoad
 {
-	self.stopWhenTimeIsUpSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey: kMTStopWhenTimesUpKey];
-	[self onStopWhenTimeIsUpSwitch: self.stopWhenTimeIsUpSwitch];
+    if (self.toBPM == self.fromBPM)
+    {
+        self.stopWhenTimeIsUpSwitch.on = NO;
+        [self.stopWhenTimeIsUpSwitch setEnabled:NO];
+        // user didn't change this setting so no need to update defaults
+        self.model.stopWhenTimeIsUp = NO;
+    }
+    else
+    {
+        self.stopWhenTimeIsUpSwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey: kMTStopWhenTimesUpKey];
+        [self onStopWhenTimeIsUpSwitch: self.stopWhenTimeIsUpSwitch];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
