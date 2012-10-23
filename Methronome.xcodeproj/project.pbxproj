@@ -19,6 +19,7 @@
 		663045D9160E742F0025FF36 /* SwitchArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 663045D8160E742F0025FF36 /* SwitchArrow.png */; };
 		66774B71158F9A3100D19970 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 66774B70158F9A3100D19970 /* Icon.png */; };
 		66774B7B158F9BA100D19970 /* Icon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66774B7A158F9BA100D19970 /* Icon2x.png */; };
+		66BF70BE1629AF5000D49FDD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66BF70BD1629AF5000D49FDD /* AVFoundation.framework */; };
 		66CAF19415BC12E1000A0D9E /* Metronome.aif in Resources */ = {isa = PBXBuildFile; fileRef = 66CAF19315BC12E1000A0D9E /* Metronome.aif */; };
 		66E84EA115E7B07900739121 /* StrongMetronome.aif in Resources */ = {isa = PBXBuildFile; fileRef = 66E84EA015E7B07900739121 /* StrongMetronome.aif */; };
 		66F1CCAF158FA1FF00E8E0D5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F1CCAE158FA1FF00E8E0D5 /* MainStoryboard.storyboard */; };
@@ -50,6 +51,7 @@
 		663045D8160E742F0025FF36 /* SwitchArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SwitchArrow.png; sourceTree = "<group>"; };
 		66774B70158F9A3100D19970 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		66774B7A158F9BA100D19970 /* Icon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon2x.png; path = ../Icon2x.png; sourceTree = "<group>"; };
+		66BF70BD1629AF5000D49FDD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		66CAF19315BC12E1000A0D9E /* Metronome.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Metronome.aif; sourceTree = "<group>"; };
 		66E84EA015E7B07900739121 /* StrongMetronome.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = StrongMetronome.aif; sourceTree = "<group>"; };
 		66F1CCAE158FA1FF00E8E0D5 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66BF70BE1629AF5000D49FDD /* AVFoundation.framework in Frameworks */,
 				662FE61E158CEA54004ECB9F /* AudioToolbox.framework in Frameworks */,
 				661A7E43158E23CA00D643F9 /* QuartzCore.framework in Frameworks */,
 				660D399D15866916006D577D /* UIKit.framework in Frameworks */,
@@ -89,6 +92,7 @@
 		660D398D15866916006D577D = {
 			isa = PBXGroup;
 			children = (
+				66BF70BD1629AF5000D49FDD /* AVFoundation.framework */,
 				660D39A215866916006D577D /* Methronome */,
 				660D399B15866916006D577D /* Frameworks */,
 				660D399915866916006D577D /* Products */,

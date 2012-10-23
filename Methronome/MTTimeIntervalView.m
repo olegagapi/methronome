@@ -38,7 +38,6 @@
         theRealThing.frame = self.frame;    // ... (pass through selected properties)
         
         // convince ARC that we're legit
-        CFRelease((__bridge const void*)self);
         CFRetain((__bridge const void*)theRealThing);
         
         return theRealThing;
