@@ -22,8 +22,11 @@
 @property (nonatomic, assign) NSTimeInterval timeInterval;
 @property (nonatomic, assign) NSUInteger strongMesure;
 @property (assign) BOOL stopWhenTimeIsUp;
+@property (assign, readonly) BOOL shouldPause;
 
 - (void)start;
 - (void)stop;
+- (void)pause;
+- (void)unpause;
 
 @end

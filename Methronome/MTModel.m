@@ -16,7 +16,9 @@
 @property (assign, nonatomic) SystemSoundID strongBeatSoundID;
 
 @property (assign) BOOL shouldStop;
+@property (assign, readwrite) BOOL shouldPause;
 
+@property (assign) NSUInteger currentBPM;
 @end
 
 @implementation MTModel
@@ -30,6 +32,8 @@
 @synthesize strongBeatSoundID = _strongBeatSoundID;
 @synthesize strongMesure = _strongMesure;
 @synthesize stopWhenTimeIsUp = _stopWhenTimeIsUp;
+@synthesize shouldPause = _shouldPause;
+@synthesize currentBPM = _currentBPM;
 
 - (id)init
 {
@@ -69,11 +73,16 @@
 - (void)backgroundMethronomeRunLoop
 {
 	NSTimeInterval roundTime = self.timeInterval / abs(self.toBPM - self.fromBPM);
-	NSUInteger i = self.fromBPM;
+	NSUInteger i = self.currentBPM = self.fromBPM;
 	NSUInteger measure = self.strongMesure;
 	while (!self.shouldStop)
 	{
-        if (i == self.toBPM && self.stopWhenTimeIsUp)
+		if (self.shouldPause)
+		{
+			[NSThread sleepForTimeInterval: 0.1];
+			continue;
+		}
+        if (self.currentBPM == self.toBPM && self.stopWhenTimeIsUp)
         {
             break;
         }
@@ -84,6 +93,12 @@
 		NSTimeInterval correctionTime = 0.0;
 		while ((-[date timeIntervalSinceNow] < roundTime - correctionTime) && (!self.shouldStop))
 		{
+			if (self.shouldPause)
+			{
+				[NSThread sleepForTimeInterval: 0.1];
+				continue;
+			}
+
 			if (measure && (measure == self.strongMesure))
 			{
 				AudioServicesPlaySystemSound(self.strongBeatSoundID);
@@ -101,6 +116,7 @@
         if (i != self.toBPM)
         {
             i += (self.fromBPM < self.toBPM) ? 1 : -1;
+			self.currentBPM = i;
         }
 	}
 	[self performSelectorOnMainThread:@selector(methronomeDidFinish) withObject:nil waitUntilDone:NO];
@@ -115,6 +131,18 @@
 - (void)stop
 {
     [self setShouldStop:YES];
+}
+
+- (void)pause
+{
+	[self.delegate methronomeDidChangeBeatWithBPM: 0];
+	[self setShouldPause:YES];
+}
+#warning HERNIA
+- (void)unpause
+{
+	[self.delegate methronomeDidChangeBeatWithBPM: self.currentBPM];
+	[self setShouldPause:NO];
 }
 
 @end

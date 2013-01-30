@@ -122,6 +122,20 @@
     [self.model stop];
 }
 
+- (IBAction)pauseMethronome:(UIButton*)sender
+{
+	if (!self.model.shouldPause)
+	{
+		[self.model pause];
+		[sender setTitle: @"Continue" forState: UIControlStateNormal];
+	}
+	else
+	{
+		[self.model unpause];
+		[sender setTitle: @"Pause" forState: UIControlStateNormal];
+	}
+}
+
 - (IBAction)onStopWhenTimeIsUpSwitch:(UISwitch*)sender
 {
 	self.model.stopWhenTimeIsUp = sender.isOn;
@@ -132,12 +146,15 @@
 {
 	self.beatLabel.text = [NSString stringWithFormat:@"%u", currentBPM];
 	[self.beatLabel.layer removeAllAnimations];
-	CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-	animation.fromValue = [NSNumber numberWithFloat:1.0];
-	animation.toValue = [NSNumber numberWithFloat:0.3];
-	animation.duration = 60.0 / currentBPM;
-	animation.repeatCount = HUGE_VALF;
-	[self.beatLabel.layer addAnimation:animation forKey:@"opacity"];
+	if (currentBPM)
+	{
+		CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+		animation.fromValue = [NSNumber numberWithFloat:1.0];
+		animation.toValue = [NSNumber numberWithFloat:0.3];
+		animation.duration = 60.0 / currentBPM;
+		animation.repeatCount = HUGE_VALF;
+		[self.beatLabel.layer addAnimation:animation forKey:@"opacity"];
+	}
 }
 
 #pragma mark MTModelDelegate
@@ -145,6 +162,7 @@
 - (void)methronomeDidChangeBeatWithBPM:(NSUInteger)currentBPM
 {
 	[self animateBeatWithBPM:currentBPM];
+	
 }
 
 - (void)methronome:(MTModel *)model didFinish:(BOOL)succesfully
